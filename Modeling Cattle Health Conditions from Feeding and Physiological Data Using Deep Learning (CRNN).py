@@ -228,3 +228,17 @@ from sklearn.preprocessing import label_binarize
 from sklearn.metrics import roc_curve, auc
 
 y_test_bin = label_binarize(y_test, classes=np.arange(len(label_encoder.classes_)))
+
+plt.figure(figsize=(8,6))
+
+for i in range(len(label_encoder.classes_)):
+    fpr, tpr, _ = roc_curve(y_test_bin[:, i], y_pred_probs[:, i])
+    roc_auc = auc(fpr, tpr)
+    plt.plot(fpr, tpr, label=f"{label_encoder.classes_[i]} (AUC = {roc_auc:.2f})")
+
+plt.plot([0,1], [0,1], "k--")
+plt.xlabel("False Positive Rate")
+plt.ylabel("True Positive Rate")
+plt.title("Multi-Class ROC Curve")
+plt.legend()
+plt.show()

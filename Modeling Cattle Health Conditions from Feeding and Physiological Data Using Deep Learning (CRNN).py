@@ -90,3 +90,9 @@ num_classes = len(np.unique(y_encoded))
 num_classes
 scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
+selector = SelectKBest(
+    score_func=mutual_info_classif,
+    k=300
+)
+
+X_reduced = selector.fit_transform(X_scaled, y_encoded)

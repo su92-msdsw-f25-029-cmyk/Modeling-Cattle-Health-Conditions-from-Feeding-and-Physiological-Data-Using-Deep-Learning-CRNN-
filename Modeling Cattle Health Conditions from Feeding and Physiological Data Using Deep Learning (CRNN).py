@@ -224,3 +224,7 @@ plt.legend()
 
 plt.tight_layout()
 plt.show()
+from sklearn.preprocessing import label_binarize
+from sklearn.metrics import roc_curve, auc
+
+y_test_bin = label_binarize(y_test, classes=np.arange(len(label_encoder.classes_)))

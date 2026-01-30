@@ -181,3 +181,23 @@ print(
         target_names=label_encoder.classes_
     )
 )
+
+from sklearn.metrics import confusion_matrix
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+cm = confusion_matrix(y_test, y_pred)
+
+plt.figure(figsize=(8,6))
+sns.heatmap(
+    cm,
+    annot=True,
+    fmt="d",
+    cmap="Blues",
+    xticklabels=label_encoder.classes_,
+    yticklabels=label_encoder.classes_
+)
+plt.xlabel("Predicted Label")
+plt.ylabel("True Label")
+plt.title("Confusion Matrix")
+plt.show()

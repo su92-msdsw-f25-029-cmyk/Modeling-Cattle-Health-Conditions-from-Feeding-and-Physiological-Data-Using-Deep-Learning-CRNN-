@@ -153,3 +153,8 @@ history = model.fit(
     callbacks=[early_stop],
     verbose=1
 )
+# Predict probabilities
+y_pred_probs = model.predict(X_test)
+
+# Predicted class labels
+y_pred = np.argmax(y_pred_probs, axis=1)

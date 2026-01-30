@@ -25,3 +25,11 @@ df.head()
 df.head()
 df.info()
 df.describe()
+numeric_cols = df.select_dtypes(include=["int64", "float64"]).columns
+numeric_cols
+plt.figure(figsize=(7,5))
+plt.hist(df[numeric_cols[0]], bins=30, edgecolor="black")
+plt.title(f"Distribution of {numeric_cols[0]}")
+plt.xlabel(numeric_cols[0])
+plt.ylabel("Frequency")
+plt.show()

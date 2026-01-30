@@ -172,3 +172,12 @@ print(f"Accuracy  : {accuracy:.4f}")
 print(f"Precision : {precision:.4f}")
 print(f"Recall    : {recall:.4f}")
 print(f"F1 Score  : {f1:.4f}")
+from sklearn.metrics import classification_report
+
+print(
+    classification_report(
+        y_test,
+        y_pred,
+        target_names=label_encoder.classes_
+    )
+)

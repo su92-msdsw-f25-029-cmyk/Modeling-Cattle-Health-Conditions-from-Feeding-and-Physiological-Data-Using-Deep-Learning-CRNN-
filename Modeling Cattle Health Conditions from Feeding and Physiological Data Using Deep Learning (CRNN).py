@@ -38,3 +38,13 @@ df[numeric_cols[:5]].boxplot()
 plt.title("Boxplot of Selected Numerical Features")
 plt.xticks(rotation=45)
 plt.show()
+plt.figure(figsize=(6,5))
+plt.scatter(
+    df[numeric_cols[0]],
+    df[numeric_cols[1]],
+    alpha=0.6
+)
+plt.xlabel(numeric_cols[0])
+plt.ylabel(numeric_cols[1])
+plt.title(f"{numeric_cols[0]} vs {numeric_cols[1]}")
+plt.show()

@@ -58,3 +58,9 @@ sns.heatmap(
 )
 plt.title("Correlation Heatmap of Numerical Features")
 plt.show()
+sns.pairplot(
+    df,
+    vars=numeric_cols[:4],
+    hue="Disease_Status"
+)
+plt.show()

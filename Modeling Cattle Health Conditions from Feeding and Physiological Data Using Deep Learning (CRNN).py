@@ -88,3 +88,5 @@ y_encoded = label_encoder.fit_transform(y)
 
 num_classes = len(np.unique(y_encoded))
 num_classes
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)

@@ -64,3 +64,12 @@ sns.pairplot(
     hue="Disease_Status"
 )
 plt.show()
+plt.figure(figsize=(6,5))
+sns.scatterplot(
+    x=df[numeric_cols[0]],
+    y=df[numeric_cols[1]],
+    hue=df["Disease_Status"],
+    palette="Set2"
+)
+plt.title("Feature Relationship by Disease Class")
+plt.show()

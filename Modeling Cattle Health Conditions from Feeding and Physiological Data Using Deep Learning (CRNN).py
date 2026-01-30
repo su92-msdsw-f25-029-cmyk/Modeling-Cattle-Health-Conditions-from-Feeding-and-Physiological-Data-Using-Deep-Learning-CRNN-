@@ -77,3 +77,7 @@ plt.show()
 !pip install ydata-profiling
 import pandas as pd
 from ydata_profiling import ProfileReport
+TARGET_COLUMN = "Disease_Status"   #
+
+X = df.drop(columns=[TARGET_COLUMN])
+y = df[TARGET_COLUMN]

@@ -20,3 +20,5 @@ from tensorflow.keras.layers import (
 )
 from tensorflow.keras.callbacks import EarlyStopping
 from tensorflow.keras.optimizers import Adam
+df = pd.read_csv("/content/global_cattle_disease_detection_dataset.csv")
+df.head()

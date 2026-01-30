@@ -73,3 +73,7 @@ sns.scatterplot(
 )
 plt.title("Feature Relationship by Disease Class")
 plt.show()
+#!pip intall
+!pip install ydata-profiling
+import pandas as pd
+from ydata_profiling import ProfileReport

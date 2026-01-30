@@ -107,3 +107,29 @@ X_train = X_train.reshape(X_train.shape[0], X_train.shape[1], 1)
 X_test  = X_test.reshape(X_test.shape[0], X_test.shape[1], 1)
 
 X_train.shape
+
+input_shape = X_train.shape[1:]
+
+inputs = Input(shape=input_shape)
+
+# 🔵 CNN BLOCK
+x = Conv1D(filters=64, kernel_size=3, activation="relu", padding="same")(inputs)
+x = BatchNormalization()(x)
+x = MaxPooling1D(pool_size=2)(x)
+
+x = Conv1D(filters=128, kernel_size=3, activation="relu", padding="same")(x)
+x = BatchNormalization()(x)
+x = MaxPooling1D(pool_size=2)(x)
+
+# 🔵 RNN BLOCK
+x = LSTM(128, return_sequences=False)(x)
+x = Dropout(0.4)(x)
+
+# 🔵 DENSE HEAD
+x = Dense(128, activation="relu")(x)
+x = Dropout(0.3)(x)
+
+outputs = Dense(num_classes, activation="softmax")(x)
+
+model = Model(inputs, outputs)
+model.summary()

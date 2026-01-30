@@ -103,3 +103,7 @@ X_train, X_test, y_train, y_test = train_test_split(
     random_state=42,
     stratify=y_encoded
 )
+X_train = X_train.reshape(X_train.shape[0], X_train.shape[1], 1)
+X_test  = X_test.reshape(X_test.shape[0], X_test.shape[1], 1)
+
+X_train.shape

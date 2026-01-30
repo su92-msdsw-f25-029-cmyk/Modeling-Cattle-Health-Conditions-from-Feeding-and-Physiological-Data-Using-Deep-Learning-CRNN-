@@ -133,3 +133,9 @@ outputs = Dense(num_classes, activation="softmax")(x)
 
 model = Model(inputs, outputs)
 model.summary()
+
+model.compile(
+    optimizer=Adam(learning_rate=1e-4),
+    loss="sparse_categorical_crossentropy",
+    metrics=["accuracy"]
+)

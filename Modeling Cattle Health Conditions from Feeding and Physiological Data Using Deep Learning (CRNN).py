@@ -48,3 +48,13 @@ plt.xlabel(numeric_cols[0])
 plt.ylabel(numeric_cols[1])
 plt.title(f"{numeric_cols[0]} vs {numeric_cols[1]}")
 plt.show()
+plt.figure(figsize=(10,8))
+corr = df[numeric_cols].corr()
+
+sns.heatmap(
+    corr,
+    cmap="coolwarm",
+    linewidths=0.5
+)
+plt.title("Correlation Heatmap of Numerical Features")
+plt.show()

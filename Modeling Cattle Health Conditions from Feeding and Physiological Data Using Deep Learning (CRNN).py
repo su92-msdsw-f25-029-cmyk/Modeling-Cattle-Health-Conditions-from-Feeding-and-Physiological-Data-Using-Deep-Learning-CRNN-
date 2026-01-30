@@ -139,3 +139,17 @@ model.compile(
     loss="sparse_categorical_crossentropy",
     metrics=["accuracy"]
 )
+early_stop = EarlyStopping(
+    monitor="val_accuracy",
+    patience=8,
+    restore_best_weights=True
+)
+history = model.fit(
+    X_train,
+    y_train,
+    validation_split=0.2,
+    epochs=60,
+    batch_size=64,
+    callbacks=[early_stop],
+    verbose=1
+)

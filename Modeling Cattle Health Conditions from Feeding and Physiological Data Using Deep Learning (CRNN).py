@@ -242,3 +242,10 @@ plt.ylabel("True Positive Rate")
 plt.title("Multi-Class ROC Curve")
 plt.legend()
 plt.show()
+
+results_df = pd.DataFrame({
+    "Metric": ["Accuracy", "Precision", "Recall", "F1 Score"],
+    "Value": [accuracy, precision, recall, f1]
+})
+
+results_df

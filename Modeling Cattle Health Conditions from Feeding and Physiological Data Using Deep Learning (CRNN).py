@@ -83,3 +83,8 @@ X = df.drop(columns=[TARGET_COLUMN])
 y = df[TARGET_COLUMN]
 # Keep ONLY numeric columns
 X = X.select_dtypes(include=["int64", "float64"])
+label_encoder = LabelEncoder()
+y_encoded = label_encoder.fit_transform(y)
+
+num_classes = len(np.unique(y_encoded))
+num_classes
